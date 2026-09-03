@@ -1,0 +1,82 @@
+{
+  "eval_date": "2025-03-01T00:00:00",
+  "role": "counsellor",
+  "purpose": "handover",
+  "n_clients": 60,
+  "tier_distribution": {
+    "2": 60
+  },
+  "metrics": [
+    {
+      "metric": "consent_leakage_rate",
+      "definition": "Fraction of briefs containing content from a non-permitted category",
+      "target": "0.0",
+      "baseline": 1.0,
+      "prototype": 0.0,
+      "delta": -1.0,
+      "passed": true,
+      "error_analysis": "Keyword redaction removes the word but leaves the sentence, so the disclosure survives and is trivially re-identifiable. Category-level filtering removes the whole span before generation."
+    },
+    {
+      "metric": "action_retention_rate",
+      "definition": "Open high-priority actions carried forward with owner and due date",
+      "target": "1.0",
+      "baseline": 0.0,
+      "prototype": 1.0,
+      "delta": 1.0,
+      "passed": true,
+      "error_analysis": "Baseline copies prose and has no action model at all. Actions travel on a separate track that consent filtering never touches."
+    },
+    {
+      "metric": "withheld_flag_recall",
+      "definition": "Withheld topics openly signalled rather than silently dropped",
+      "target": ">=0.95",
+      "baseline": 0.0,
+      "prototype": 1.0,
+      "delta": 1.0,
+      "passed": true,
+      "error_analysis": "Baseline cannot flag what it does not model. Every withheld category is named in the notice so the clinician knows a gap exists."
+    },
+    {
+      "metric": "word_reduction",
+      "definition": "Prototype word count as a fraction of baseline word count",
+      "target": "<=0.40",
+      "baseline": 1.0,
+      "prototype": 0.3434,
+      "delta": -0.6566,
+      "passed": true,
+      "error_analysis": "Baseline concatenates three full sessions verbatim. Tier 2 keeps only permitted sentences and de-duplicates repeats across sessions."
+    },
+    {
+      "metric": "safety_escalation_recall",
+      "definition": "Clients with withheld safety content whose brief raises an escalation flag",
+      "target": "1.0",
+      "baseline": 0.0,
+      "prototype": 1.0,
+      "delta": 1.0,
+      "passed": true,
+      "error_analysis": "Baseline redacts risk wording and signals nothing, so withheld risk becomes invisible. The carve-out flags existence without disclosing content."
+    },
+    {
+      "metric": "provenance_coverage",
+      "definition": "Briefs whose disclosed content is traceable to source span ids",
+      "target": "1.0",
+      "baseline": 0.0,
+      "prototype": 1.0,
+      "delta": 1.0,
+      "passed": true,
+      "error_analysis": "Baseline output is an undifferentiated blob with no span links. Every prototype sentence carries the span id it came from."
+    },
+    {
+      "metric": "fallback_availability",
+      "definition": "Clients receiving a usable non-empty brief without an unhandled error",
+      "target": "1.0",
+      "baseline": 1.0,
+      "prototype": 1.0,
+      "delta": 0.0,
+      "passed": true,
+      "error_analysis": "Baseline is always available but always unfiltered. The ladder keeps availability without giving up the consent guarantee."
+    }
+  ],
+  "all_passed": true
+}

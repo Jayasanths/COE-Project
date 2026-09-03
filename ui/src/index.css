@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased selection:bg-clinical-light selection:text-clinical overflow-hidden;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-clinical ring-offset-2 ring-offset-paper;
+  }
+}
+
+@layer components {
+  .label-micro {
+    @apply font-mono text-micro uppercase tracking-wider text-muted font-medium;
+  }
+
+  .card {
+    @apply bg-card border border-rule rounded-lg shadow-card transition-all;
+  }
+
+  .banner {
+    @apply border-l-4 bg-card border-y border-r border-rule rounded-r-lg px-4 py-3 shadow-card;
+  }
+
+  /* Custom clinical scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full hover:bg-slate-400;
+  }
+
+  /* Dark theme scrollbar for sidebar */
+  .dark-scrollbar::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .dark-scrollbar::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+
+  .dark-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-slate-700 rounded-full hover:bg-slate-600;
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(0.98); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

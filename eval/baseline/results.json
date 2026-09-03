@@ -1,0 +1,542 @@
+[
+  {
+    "client_id": "C001",
+    "method": "baseline_regex_redact",
+    "brief": "Client has outstanding rent arrears; social worker referral made. [REDACTED] officer contacted regarding compliance. No current risk identified; protective factors strong. Client attended OT group; participation noted as positive. | Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Care coordinator handover planned for next week. | Sibling requested information \u2014 consent not in place, declined. Benefits claim in progress; Universal Credit application submitted. Lithium level checked: 0.7 mmol/L, within therapeutic range. Discussed discharge goals and community support plan.",
+    "word_count": 80,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C002",
+    "method": "baseline_regex_redact",
+    "brief": "Clozapine dose reviewed: 300mg nocte, no side effects reported. [REDACTED] screening discussed; client consented to referral. Client reports being sober for 3 weeks following discharge. Client engaged well in session; reported improved sleep. | Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Client has outstanding rent arrears; social worker referral made. Client reports being sober for 3 weeks following discharge. Client set goal to attend weekly AA meeting. | [REDACTED] screening discussed; client consented to referral. Client attended OT group; participation noted as positive.",
+    "word_count": 86,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C003",
+    "method": "baseline_regex_redact",
+    "brief": "Client estranged from primary family; emergency contacts updated. Client engaged well in session; reported improved sleep. | Client expressed difficulty trusting care staff linked to past experiences. Client disclosed ongoing alcohol use, approximately 4 units daily. Clozapine dose reviewed: 300mg nocte, no side effects reported. Care coordinator handover planned for next week. | Client has outstanding rent arrears; social worker referral made. Client engaged well in session; reported improved sleep.",
+    "word_count": 70,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C004",
+    "method": "baseline_regex_redact",
+    "brief": "Client admitted to relapse over the weekend \u2014 returned to cannabis use. Clozapine dose reviewed: 300mg nocte, no side effects reported. Family visit resulted in heightened distress; boundaries discussed. Client engaged well in session; reported improved sleep. | Family visit resulted in heightened distress; boundaries discussed. Client expressed passive [REDACTED] ideation; risk assessment completed. Client attended OT group; participation noted as positive. | Discussed harm reduction strategies for substance use. Client expressed passive [REDACTED] ideation; risk assessment completed. Discussed discharge goals and community support plan.",
+    "word_count": 85,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C005",
+    "method": "baseline_regex_redact",
+    "brief": "Trauma-informed approach used; client showed distress when discussing early life. Care coordinator handover planned for next week. | No current risk identified; protective factors strong. Discussed discharge goals and community support plan. | [REDACTED] screening discussed; client consented to referral. Client engaged well in session; reported improved sleep.",
+    "word_count": 48,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C006",
+    "method": "baseline_regex_redact",
+    "brief": "Discussed harm reduction strategies for substance use. Benefits claim in progress; Universal Credit application submitted. Client expressed passive [REDACTED] ideation; risk assessment completed. Client engaged well in session; reported improved sleep. | Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Client set goal to attend weekly AA meeting. | Benefits claim in progress; Universal Credit application submitted. Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Care coordinator handover planned for next week.",
+    "word_count": 76,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C007",
+    "method": "baseline_regex_redact",
+    "brief": "[REDACTED] screening discussed; client consented to referral. No current risk identified; protective factors strong. Care coordinator handover planned for next week. | Client expressed passive [REDACTED] ideation; risk assessment completed. Client engaged well in session; reported improved sleep. | Client expressed difficulty trusting care staff linked to past experiences. Client engaged well in session; reported improved sleep.",
+    "word_count": 57,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C008",
+    "method": "baseline_regex_redact",
+    "brief": "No current risk identified; protective factors strong. Discussed discharge goals and community support plan. | Lithium level checked: 0.7 mmol/L, within therapeutic range. [REDACTED] officer contacted regarding compliance. Client set goal to attend weekly AA meeting. | [REDACTED] screening discussed; client consented to referral. Discussed discharge goals and community support plan.",
+    "word_count": 51,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C009",
+    "method": "baseline_regex_redact",
+    "brief": "[REDACTED] screening discussed; client consented to referral. Benefits claim in progress; Universal Credit application submitted. Sibling requested information \u2014 consent not in place, declined. Client attended OT group; participation noted as positive. | Client expressed difficulty trusting care staff linked to past experiences. Client has outstanding rent arrears; social worker referral made. Client expressed passive [REDACTED] ideation; risk assessment completed. Discussed discharge goals and community support plan. | Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Clozapine dose reviewed: 300mg nocte, no side effects reported. Client attended OT group; participation noted as positive.",
+    "word_count": 95,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C010",
+    "method": "baseline_regex_redact",
+    "brief": "Client raised concerns about sexual health; referred to GUM clinic. Client engaged well in session; reported improved sleep. | Sibling requested information \u2014 consent not in place, declined. No current risk identified; protective factors strong. Discussed discharge goals and community support plan. | Client disclosed prior [REDACTED] conviction \u2014 not relevant to current episode. Client raised concerns about sexual health; referred to GUM clinic. Trauma-informed approach used; client showed distress when discussing early life. Care coordinator handover planned for next week.",
+    "word_count": 81,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C011",
+    "method": "baseline_regex_redact",
+    "brief": "Client disclosed prior [REDACTED] conviction \u2014 not relevant to current episode. Trauma-informed approach used; client showed distress when discussing early life. [REDACTED] screening discussed; client consented to referral. Client set goal to attend weekly AA meeting. | No current risk identified; protective factors strong. Client attended OT group; participation noted as positive. | Family visit resulted in heightened distress; boundaries discussed. [REDACTED] screening discussed; client consented to referral. [REDACTED] officer contacted regarding compliance. Client set goal to attend weekly AA meeting.",
+    "word_count": 81,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C012",
+    "method": "baseline_regex_redact",
+    "brief": "Lithium level checked: 0.7 mmol/L, within therapeutic range. Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Discussed discharge goals and community support plan. | Client expressed difficulty trusting care staff linked to past experiences. Benefits claim in progress; Universal Credit application submitted. [REDACTED] screening discussed; client consented to referral. Care coordinator handover planned for next week. | Trauma-informed approach used; client showed distress when discussing early life. Lithium level checked: 0.7 mmol/L, within therapeutic range. Care coordinator handover planned for next week.",
+    "word_count": 84,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C013",
+    "method": "baseline_regex_redact",
+    "brief": "Client expressed difficulty trusting care staff linked to past experiences. Client raised concerns about sexual health; referred to GUM clinic. Client set goal to attend weekly AA meeting. | Discussed harm reduction strategies for substance use. No current risk identified; protective factors strong. Care coordinator handover planned for next week. | Trauma-informed approach used; client showed distress when discussing early life. Client engaged well in session; reported improved sleep.",
+    "word_count": 69,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C014",
+    "method": "baseline_regex_redact",
+    "brief": "[REDACTED] screening discussed; client consented to referral. No current risk identified; protective factors strong. Benefits claim in progress; Universal Credit application submitted. Client set goal to attend weekly AA meeting. | Client has an upcoming court appearance on 14 March. Client engaged well in session; reported improved sleep. | No current risk identified; protective factors strong. Client non-adherent with risperidone \u2014 discussed depot option. Discussed discharge goals and community support plan.",
+    "word_count": 71,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C015",
+    "method": "baseline_regex_redact",
+    "brief": "Client disclosed prior [REDACTED] conviction \u2014 not relevant to current episode. Benefits claim in progress; Universal Credit application submitted. Client engaged well in session; reported improved sleep. | Client has outstanding rent arrears; social worker referral made. Client estranged from primary family; emergency contacts updated. Discussed discharge goals and community support plan. | Client expressed difficulty trusting care staff linked to past experiences. Client set goal to attend weekly AA meeting.",
+    "word_count": 71,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C016",
+    "method": "baseline_regex_redact",
+    "brief": "Client disclosed prior [REDACTED] conviction \u2014 not relevant to current episode. Discussed harm reduction strategies for substance use. Client expressed difficulty trusting care staff linked to past experiences. Client attended OT group; participation noted as positive. | Benefits claim in progress; Universal Credit application submitted. Client expressed passive [REDACTED] ideation; risk assessment completed. Client attended OT group; participation noted as positive. | Client expressed difficulty trusting care staff linked to past experiences. Client estranged from primary family; emergency contacts updated. Client set goal to attend weekly AA meeting.",
+    "word_count": 88,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C017",
+    "method": "baseline_regex_redact",
+    "brief": "Client non-adherent with risperidone \u2014 discussed depot option. Client admitted to relapse over the weekend \u2014 returned to cannabis use. Client engaged well in session; reported improved sleep. | Client admitted to relapse over the weekend \u2014 returned to cannabis use. Client attended OT group; participation noted as positive. | Client admitted to relapse over the weekend \u2014 returned to cannabis use. Care coordinator handover planned for next week.",
+    "word_count": 69,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C018",
+    "method": "baseline_regex_redact",
+    "brief": "Client expressed passive [REDACTED] ideation; risk assessment completed. Client non-adherent with risperidone \u2014 discussed depot option. Client referenced childhood abuse during session; did not elaborate. Discussed discharge goals and community support plan. | Client estranged from primary family; emergency contacts updated. Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Client engaged well in session; reported improved sleep. | Clozapine dose reviewed: 300mg nocte, no side effects reported. Benefits claim in progress; Universal Credit application submitted. Client attended OT group; participation noted as positive.",
+    "word_count": 85,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C019",
+    "method": "baseline_regex_redact",
+    "brief": "Lithium level checked: 0.7 mmol/L, within therapeutic range. Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. [REDACTED] officer contacted regarding compliance. Discussed discharge goals and community support plan. | Client raised concerns about sexual health; referred to GUM clinic. Discussed harm reduction strategies for substance use. Client expressed difficulty trusting care staff linked to past experiences. Care coordinator handover planned for next week. | Trauma-informed approach used; client showed distress when discussing early life. Discussed harm reduction strategies for substance use. [REDACTED] officer contacted regarding compliance. Client engaged well in session; reported improved sleep.",
+    "word_count": 96,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C020",
+    "method": "baseline_regex_redact",
+    "brief": "Trauma-informed approach used; client showed distress when discussing early life. Client has an upcoming court appearance on 14 March. Care coordinator handover planned for next week. | [REDACTED] officer contacted regarding compliance. Client attended OT group; participation noted as positive. | Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Client attended OT group; participation noted as positive.",
+    "word_count": 59,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C021",
+    "method": "baseline_regex_redact",
+    "brief": "No current risk identified; protective factors strong. Clozapine dose reviewed: 300mg nocte, no side effects reported. Sibling requested information \u2014 consent not in place, declined. Care coordinator handover planned for next week. | Client admitted to relapse over the weekend \u2014 returned to cannabis use. Sibling requested information \u2014 consent not in place, declined. Client raised concerns about sexual health; referred to GUM clinic. Discussed discharge goals and community support plan. | Client raised concerns about sexual health; referred to GUM clinic. Client engaged well in session; reported improved sleep.",
+    "word_count": 90,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C022",
+    "method": "baseline_regex_redact",
+    "brief": "Client non-adherent with risperidone \u2014 discussed depot option. Client expressed passive [REDACTED] ideation; risk assessment completed. Client set goal to attend weekly AA meeting. | Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. [REDACTED] screening discussed; client consented to referral. Client engaged well in session; reported improved sleep. | Client raised concerns about sexual health; referred to GUM clinic. Family visit resulted in heightened distress; boundaries discussed. Clozapine dose reviewed: 300mg nocte, no side effects reported. Client engaged well in session; reported improved sleep.",
+    "word_count": 86,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C023",
+    "method": "baseline_regex_redact",
+    "brief": "No current risk identified; protective factors strong. Sibling requested information \u2014 consent not in place, declined. Lithium level checked: 0.7 mmol/L, within therapeutic range. Discussed discharge goals and community support plan. | Lithium level checked: 0.7 mmol/L, within therapeutic range. Discussed discharge goals and community support plan. | Client expressed passive [REDACTED] ideation; risk assessment completed. Client set goal to attend weekly AA meeting.",
+    "word_count": 64,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C024",
+    "method": "baseline_regex_redact",
+    "brief": "Client non-adherent with risperidone \u2014 discussed depot option. Client expressed difficulty trusting care staff linked to past experiences. Client engaged well in session; reported improved sleep. | Client disclosed ongoing alcohol use, approximately 4 units daily. Client referenced childhood abuse during session; did not elaborate. Client has outstanding rent arrears; social worker referral made. Client engaged well in session; reported improved sleep. | Client raised concerns about sexual health; referred to GUM clinic. Family visit resulted in heightened distress; boundaries discussed. Client attended OT group; participation noted as positive.",
+    "word_count": 89,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C025",
+    "method": "baseline_regex_redact",
+    "brief": "Client raised concerns about sexual health; referred to GUM clinic. Client engaged well in session; reported improved sleep. | [REDACTED] screening discussed; client consented to referral. Client set goal to attend weekly AA meeting. | Benefits claim in progress; Universal Credit application submitted. [REDACTED] screening discussed; client consented to referral. Care coordinator handover planned for next week.",
+    "word_count": 57,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C026",
+    "method": "baseline_regex_redact",
+    "brief": "Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Client disclosed ongoing alcohol use, approximately 4 units daily. Benefits claim in progress; Universal Credit application submitted. Client attended OT group; participation noted as positive. | Client has outstanding rent arrears; social worker referral made. Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Client referenced childhood abuse during session; did not elaborate. Client attended OT group; participation noted as positive. | Benefits claim in progress; Universal Credit application submitted. Discussed harm reduction strategies for substance use. Discussed discharge goals and community support plan.",
+    "word_count": 95,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C027",
+    "method": "baseline_regex_redact",
+    "brief": "Client has outstanding rent arrears; social worker referral made. [REDACTED] officer contacted regarding compliance. No current risk identified; protective factors strong. Client engaged well in session; reported improved sleep. | Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Family visit resulted in heightened distress; boundaries discussed. Client attended OT group; participation noted as positive. | Clozapine dose reviewed: 300mg nocte, no side effects reported. Benefits claim in progress; Universal Credit application submitted. Client raised concerns about sexual health; referred to GUM clinic. Discussed discharge goals and community support plan.",
+    "word_count": 91,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C028",
+    "method": "baseline_regex_redact",
+    "brief": "Client non-adherent with risperidone \u2014 discussed depot option. Client raised concerns about sexual health; referred to GUM clinic. Client engaged well in session; reported improved sleep. | Client estranged from primary family; emergency contacts updated. Client engaged well in session; reported improved sleep. | [REDACTED] officer contacted regarding compliance. Client expressed passive [REDACTED] ideation; risk assessment completed. Benefits claim in progress; Universal Credit application submitted. Care coordinator handover planned for next week.",
+    "word_count": 72,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C029",
+    "method": "baseline_regex_redact",
+    "brief": "Client has outstanding rent arrears; social worker referral made. Client estranged from primary family; emergency contacts updated. [REDACTED] screening discussed; client consented to referral. Client set goal to attend weekly AA meeting. | Client has an upcoming court appearance on 14 March. Client expressed passive [REDACTED] ideation; risk assessment completed. Client reports being sober for 3 weeks following discharge. Care coordinator handover planned for next week. | Benefits claim in progress; Universal Credit application submitted. Client raised concerns about sexual health; referred to GUM clinic. Trauma-informed approach used; client showed distress when discussing early life. Discussed discharge goals and community support plan.",
+    "word_count": 102,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C030",
+    "method": "baseline_regex_redact",
+    "brief": "Benefits claim in progress; Universal Credit application submitted. [REDACTED] screening discussed; client consented to referral. Client expressed difficulty trusting care staff linked to past experiences. Client engaged well in session; reported improved sleep. | Client estranged from primary family; emergency contacts updated. Client non-adherent with risperidone \u2014 discussed depot option. Client disclosed prior [REDACTED] conviction \u2014 not relevant to current episode. Care coordinator handover planned for next week. | Client has outstanding rent arrears; social worker referral made. Discussed discharge goals and community support plan.",
+    "word_count": 85,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C031",
+    "method": "baseline_regex_redact",
+    "brief": "Client has outstanding rent arrears; social worker referral made. Client disclosed prior [REDACTED] conviction \u2014 not relevant to current episode. Client set goal to attend weekly AA meeting. | Client admitted to relapse over the weekend \u2014 returned to cannabis use. Client has outstanding rent arrears; social worker referral made. Client non-adherent with risperidone \u2014 discussed depot option. Discussed discharge goals and community support plan. | Trauma-informed approach used; client showed distress when discussing early life. Client expressed passive [REDACTED] ideation; risk assessment completed. Client engaged well in session; reported improved sleep.",
+    "word_count": 92,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C032",
+    "method": "baseline_regex_redact",
+    "brief": "[REDACTED] officer contacted regarding compliance. Clozapine dose reviewed: 300mg nocte, no side effects reported. Client engaged well in session; reported improved sleep. | Family visit resulted in heightened distress; boundaries discussed. Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Care coordinator handover planned for next week. | Lithium level checked: 0.7 mmol/L, within therapeutic range. Client reports being sober for 3 weeks following discharge. Client raised concerns about sexual health; referred to GUM clinic. Client engaged well in session; reported improved sleep.",
+    "word_count": 84,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C033",
+    "method": "baseline_regex_redact",
+    "brief": "Clozapine dose reviewed: 300mg nocte, no side effects reported. Client raised concerns about sexual health; referred to GUM clinic. No current risk identified; protective factors strong. Client set goal to attend weekly AA meeting. | [REDACTED] officer contacted regarding compliance. Trauma-informed approach used; client showed distress when discussing early life. Care coordinator handover planned for next week. | Client expressed passive [REDACTED] ideation; risk assessment completed. Client has an upcoming court appearance on 14 March. Client set goal to attend weekly AA meeting.",
+    "word_count": 83,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C034",
+    "method": "baseline_regex_redact",
+    "brief": "Benefits claim in progress; Universal Credit application submitted. Care coordinator handover planned for next week. | Clozapine dose reviewed: 300mg nocte, no side effects reported. Client attended OT group; participation noted as positive. | Client disclosed prior [REDACTED] conviction \u2014 not relevant to current episode. Client reports being sober for 3 weeks following discharge. Care coordinator handover planned for next week.",
+    "word_count": 61,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C035",
+    "method": "baseline_regex_redact",
+    "brief": "Client has an upcoming court appearance on 14 March. Client has outstanding rent arrears; social worker referral made. Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Client engaged well in session; reported improved sleep. | Benefits claim in progress; Universal Credit application submitted. Family visit resulted in heightened distress; boundaries discussed. Discussed harm reduction strategies for substance use. Care coordinator handover planned for next week. | Clozapine dose reviewed: 300mg nocte, no side effects reported. Discussed discharge goals and community support plan.",
+    "word_count": 84,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C036",
+    "method": "baseline_regex_redact",
+    "brief": "Client reports being sober for 3 weeks following discharge. [REDACTED] screening discussed; client consented to referral. Clozapine dose reviewed: 300mg nocte, no side effects reported. Discussed discharge goals and community support plan. | Client estranged from primary family; emergency contacts updated. Clozapine dose reviewed: 300mg nocte, no side effects reported. Client disclosed prior [REDACTED] conviction \u2014 not relevant to current episode. Discussed discharge goals and community support plan. | Client disclosed ongoing alcohol use, approximately 4 units daily. [REDACTED] screening discussed; client consented to referral. Client engaged well in session; reported improved sleep.",
+    "word_count": 93,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C037",
+    "method": "baseline_regex_redact",
+    "brief": "Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Benefits claim in progress; Universal Credit application submitted. Client reports being sober for 3 weeks following discharge. Client set goal to attend weekly AA meeting. | Trauma-informed approach used; client showed distress when discussing early life. Client attended OT group; participation noted as positive. | Benefits claim in progress; Universal Credit application submitted. Client non-adherent with risperidone \u2014 discussed depot option. Client attended OT group; participation noted as positive.",
+    "word_count": 79,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C038",
+    "method": "baseline_regex_redact",
+    "brief": "Client has outstanding rent arrears; social worker referral made. Client set goal to attend weekly AA meeting. | Client raised concerns about sexual health; referred to GUM clinic. Care coordinator handover planned for next week. | Client reports being sober for 3 weeks following discharge. Client raised concerns about sexual health; referred to GUM clinic. Client expressed difficulty trusting care staff linked to past experiences. Client attended OT group; participation noted as positive.",
+    "word_count": 73,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C039",
+    "method": "baseline_regex_redact",
+    "brief": "Clozapine dose reviewed: 300mg nocte, no side effects reported. Client attended OT group; participation noted as positive. | Lithium level checked: 0.7 mmol/L, within therapeutic range. Client has an upcoming court appearance on 14 March. Client set goal to attend weekly AA meeting. | Client raised concerns about sexual health; referred to GUM clinic. Client estranged from primary family; emergency contacts updated. Care coordinator handover planned for next week.",
+    "word_count": 69,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C040",
+    "method": "baseline_regex_redact",
+    "brief": "Clozapine dose reviewed: 300mg nocte, no side effects reported. [REDACTED] screening discussed; client consented to referral. Client expressed passive [REDACTED] ideation; risk assessment completed. Care coordinator handover planned for next week. | Client raised concerns about sexual health; referred to GUM clinic. Client engaged well in session; reported improved sleep. | Lithium level checked: 0.7 mmol/L, within therapeutic range. Client engaged well in session; reported improved sleep.",
+    "word_count": 67,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C041",
+    "method": "baseline_regex_redact",
+    "brief": "Client referenced childhood abuse during session; did not elaborate. Client reports being sober for 3 weeks following discharge. Discussed discharge goals and community support plan. | No current risk identified; protective factors strong. Family visit resulted in heightened distress; boundaries discussed. Client attended OT group; participation noted as positive. | Benefits claim in progress; Universal Credit application submitted. Client attended OT group; participation noted as positive.",
+    "word_count": 66,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C042",
+    "method": "baseline_regex_redact",
+    "brief": "[REDACTED] screening discussed; client consented to referral. Client non-adherent with risperidone \u2014 discussed depot option. Client has outstanding rent arrears; social worker referral made. Client attended OT group; participation noted as positive. | Clozapine dose reviewed: 300mg nocte, no side effects reported. Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. [REDACTED] screening discussed; client consented to referral. Client attended OT group; participation noted as positive. | Trauma-informed approach used; client showed distress when discussing early life. Discussed harm reduction strategies for substance use. Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Client engaged well in session; reported improved sleep.",
+    "word_count": 103,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C043",
+    "method": "baseline_regex_redact",
+    "brief": "Family visit resulted in heightened distress; boundaries discussed. Client has outstanding rent arrears; social worker referral made. Client raised concerns about sexual health; referred to GUM clinic. Discussed discharge goals and community support plan. | Sibling requested information \u2014 consent not in place, declined. Client engaged well in session; reported improved sleep. | Client admitted to relapse over the weekend \u2014 returned to cannabis use. Client engaged well in session; reported improved sleep.",
+    "word_count": 73,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C044",
+    "method": "baseline_regex_redact",
+    "brief": "Client reports being sober for 3 weeks following discharge. Client has an upcoming court appearance on 14 March. Discussed discharge goals and community support plan. | Client expressed difficulty trusting care staff linked to past experiences. Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Clozapine dose reviewed: 300mg nocte, no side effects reported. Care coordinator handover planned for next week. | Client disclosed prior [REDACTED] conviction \u2014 not relevant to current episode. Client disclosed ongoing alcohol use, approximately 4 units daily. Client raised concerns about sexual health; referred to GUM clinic. Client set goal to attend weekly AA meeting.",
+    "word_count": 101,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C045",
+    "method": "baseline_regex_redact",
+    "brief": "[REDACTED] screening discussed; client consented to referral. Discussed discharge goals and community support plan. | Client expressed passive [REDACTED] ideation; risk assessment completed. Clozapine dose reviewed: 300mg nocte, no side effects reported. Family visit resulted in heightened distress; boundaries discussed. Care coordinator handover planned for next week. | Client disclosed prior [REDACTED] conviction \u2014 not relevant to current episode. Client non-adherent with risperidone \u2014 discussed depot option. Discussed discharge goals and community support plan.",
+    "word_count": 74,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C046",
+    "method": "baseline_regex_redact",
+    "brief": "Client non-adherent with risperidone \u2014 discussed depot option. Client raised concerns about sexual health; referred to GUM clinic. Benefits claim in progress; Universal Credit application submitted. Client set goal to attend weekly AA meeting. | Sibling requested information \u2014 consent not in place, declined. Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Client has outstanding rent arrears; social worker referral made. Care coordinator handover planned for next week. | Benefits claim in progress; Universal Credit application submitted. Client disclosed prior [REDACTED] conviction \u2014 not relevant to current episode. Client expressed passive [REDACTED] ideation; risk assessment completed. Discussed discharge goals and community support plan.",
+    "word_count": 105,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C047",
+    "method": "baseline_regex_redact",
+    "brief": "Client referenced childhood abuse during session; did not elaborate. Client set goal to attend weekly AA meeting. | Client expressed difficulty trusting care staff linked to past experiences. Client disclosed ongoing alcohol use, approximately 4 units daily. [REDACTED] screening discussed; client consented to referral. Client attended OT group; participation noted as positive. | Benefits claim in progress; Universal Credit application submitted. Client expressed difficulty trusting care staff linked to past experiences. Client raised concerns about sexual health; referred to GUM clinic. Client attended OT group; participation noted as positive.",
+    "word_count": 89,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C048",
+    "method": "baseline_regex_redact",
+    "brief": "Family visit resulted in heightened distress; boundaries discussed. Client set goal to attend weekly AA meeting. | [REDACTED] officer contacted regarding compliance. Clozapine dose reviewed: 300mg nocte, no side effects reported. Client disclosed ongoing alcohol use, approximately 4 units daily. Care coordinator handover planned for next week. | Client has outstanding rent arrears; social worker referral made. Client raised concerns about sexual health; referred to GUM clinic. Sibling requested information \u2014 consent not in place, declined. Client set goal to attend weekly AA meeting.",
+    "word_count": 84,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C049",
+    "method": "baseline_regex_redact",
+    "brief": "Client admitted to relapse over the weekend \u2014 returned to cannabis use. Benefits claim in progress; Universal Credit application submitted. [REDACTED] screening discussed; client consented to referral. Client set goal to attend weekly AA meeting. | Client raised concerns about sexual health; referred to GUM clinic. Benefits claim in progress; Universal Credit application submitted. Client set goal to attend weekly AA meeting. | Clozapine dose reviewed: 300mg nocte, no side effects reported. Client raised concerns about sexual health; referred to GUM clinic. No current risk identified; protective factors strong. Client engaged well in session; reported improved sleep.",
+    "word_count": 97,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C050",
+    "method": "baseline_regex_redact",
+    "brief": "[REDACTED] officer contacted regarding compliance. Benefits claim in progress; Universal Credit application submitted. No current risk identified; protective factors strong. Care coordinator handover planned for next week. | Client has an upcoming court appearance on 14 March. Benefits claim in progress; Universal Credit application submitted. Client set goal to attend weekly AA meeting. | Client referenced childhood abuse during session; did not elaborate. Client attended OT group; participation noted as positive.",
+    "word_count": 71,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C051",
+    "method": "baseline_regex_redact",
+    "brief": "Family visit resulted in heightened distress; boundaries discussed. Discussed discharge goals and community support plan. | Client expressed passive [REDACTED] ideation; risk assessment completed. Client estranged from primary family; emergency contacts updated. Care coordinator handover planned for next week. | Benefits claim in progress; Universal Credit application submitted. Client engaged well in session; reported improved sleep.",
+    "word_count": 56,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C052",
+    "method": "baseline_regex_redact",
+    "brief": "Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Client referenced childhood abuse during session; did not elaborate. Client engaged well in session; reported improved sleep. | Benefits claim in progress; Universal Credit application submitted. Clozapine dose reviewed: 300mg nocte, no side effects reported. Client engaged well in session; reported improved sleep. | No current risk identified; protective factors strong. Clozapine dose reviewed: 300mg nocte, no side effects reported. Discussed discharge goals and community support plan.",
+    "word_count": 77,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C053",
+    "method": "baseline_regex_redact",
+    "brief": "[REDACTED] officer contacted regarding compliance. Client reports being sober for 3 weeks following discharge. Family visit resulted in heightened distress; boundaries discussed. Client set goal to attend weekly AA meeting. | Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Client attended OT group; participation noted as positive. | Clozapine dose reviewed: 300mg nocte, no side effects reported. Client disclosed ongoing alcohol use, approximately 4 units daily. Discussed discharge goals and community support plan.",
+    "word_count": 75,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C054",
+    "method": "baseline_regex_redact",
+    "brief": "Client disclosed ongoing alcohol use, approximately 4 units daily. Lithium level checked: 0.7 mmol/L, within therapeutic range. Discussed discharge goals and community support plan. | Family visit resulted in heightened distress; boundaries discussed. Client attended OT group; participation noted as positive. | Sibling requested information \u2014 consent not in place, declined. Client reported [REDACTED] urges \u2014 safety plan reviewed and updated. Client has outstanding rent arrears; social worker referral made. Discussed discharge goals and community support plan.",
+    "word_count": 77,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C055",
+    "method": "baseline_regex_redact",
+    "brief": "Client referenced childhood abuse during session; did not elaborate. Client reports being sober for 3 weeks following discharge. Client non-adherent with risperidone \u2014 discussed depot option. Client engaged well in session; reported improved sleep. | No current risk identified; protective factors strong. Client reports being sober for 3 weeks following discharge. Client set goal to attend weekly AA meeting. | Client expressed passive [REDACTED] ideation; risk assessment completed. Sibling requested information \u2014 consent not in place, declined. Lithium level checked: 0.7 mmol/L, within therapeutic range. Client set goal to attend weekly AA meeting.",
+    "word_count": 93,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C056",
+    "method": "baseline_regex_redact",
+    "brief": "Client has an upcoming court appearance on 14 March. Client expressed difficulty trusting care staff linked to past experiences. Clozapine dose reviewed: 300mg nocte, no side effects reported. Client set goal to attend weekly AA meeting. | Client disclosed prior [REDACTED] conviction \u2014 not relevant to current episode. Client non-adherent with risperidone \u2014 discussed depot option. Client set goal to attend weekly AA meeting. | Clozapine dose reviewed: 300mg nocte, no side effects reported. Client attended OT group; participation noted as positive.",
+    "word_count": 82,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C057",
+    "method": "baseline_regex_redact",
+    "brief": "Discussed harm reduction strategies for substance use. Trauma-informed approach used; client showed distress when discussing early life. [REDACTED] officer contacted regarding compliance. Care coordinator handover planned for next week. | Client reports being sober for 3 weeks following discharge. Lithium level checked: 0.7 mmol/L, within therapeutic range. Sibling requested information \u2014 consent not in place, declined. Discussed discharge goals and community support plan. | Benefits claim in progress; Universal Credit application submitted. [REDACTED] officer contacted regarding compliance. Discussed discharge goals and community support plan.",
+    "word_count": 84,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C058",
+    "method": "baseline_regex_redact",
+    "brief": "Client has outstanding rent arrears; social worker referral made. Client attended OT group; participation noted as positive. | Clozapine dose reviewed: 300mg nocte, no side effects reported. Client admitted to relapse over the weekend \u2014 returned to cannabis use. Care coordinator handover planned for next week. | Trauma-informed approach used; client showed distress when discussing early life. Client disclosed prior [REDACTED] conviction \u2014 not relevant to current episode. Client attended OT group; participation noted as positive.",
+    "word_count": 76,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C059",
+    "method": "baseline_regex_redact",
+    "brief": "[REDACTED] screening discussed; client consented to referral. Care coordinator handover planned for next week. | [REDACTED] officer contacted regarding compliance. Care coordinator handover planned for next week. | Client has outstanding rent arrears; social worker referral made. Client non-adherent with risperidone \u2014 discussed depot option. Client attended OT group; participation noted as positive.",
+    "word_count": 53,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  },
+  {
+    "client_id": "C060",
+    "method": "baseline_regex_redact",
+    "brief": "Lithium level checked: 0.7 mmol/L, within therapeutic range. Discussed discharge goals and community support plan. | [REDACTED] screening discussed; client consented to referral. Trauma-informed approach used; client showed distress when discussing early life. Client disclosed ongoing alcohol use, approximately 4 units daily. Care coordinator handover planned for next week. | Client has outstanding rent arrears; social worker referral made. Care coordinator handover planned for next week.",
+    "word_count": 66,
+    "actions_included": [],
+    "withheld_flags": [],
+    "escalation_flags": []
+  }
+]
