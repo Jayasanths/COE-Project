@@ -27,6 +27,10 @@ baseline:
 eval:
 	uv run python -m eval.harness.run
 	uv run python -m eval.harness.report
+	uv run python -m eval.harness.tagger_recall
+
+eval-tagger:
+	uv run python -m eval.harness.tagger_recall
 
 # Full reproducible pipeline: data → baseline → prototype → report
 reproduce:

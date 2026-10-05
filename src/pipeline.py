@@ -65,12 +65,15 @@ def build_consent_records(client: dict) -> list[ConsentRecord]:
     acceptable here.
     """
     records: list[ConsentRecord] = []
-    for raw in client.get("consents", []):
+    raw_consents = client.get("consents") or []
+    for raw in raw_consents:
+        if not isinstance(raw, dict):
+            continue
         try:
             category = SensitivityCategory(raw["category"])
             role = RecipientRole(raw["recipient_role"])
             purpose = ConsentPurpose(raw["purpose"])
-        except (KeyError, ValueError):
+        except (KeyError, ValueError, TypeError):
             continue
         granted_at = _parse(raw.get("granted_at"))
         if granted_at is None:
@@ -107,8 +110,10 @@ def collect_spans(client: dict) -> tuple[list[TaggedSpan], list[str]]:
     rather than patching the symptom. A sentence is either tagged or it is not,
     and the two lists cannot disagree because they come from the same split.
     """
-    sessions = sorted(client.get("sessions", []), key=lambda s: s.get("date", ""))
-    recent = sessions[-SESSION_WINDOW:]
+    raw_sessions = client.get("sessions") or []
+    sessions = [s for s in raw_sessions if isinstance(s, dict)]
+    sessions.sort(key=lambda s: str(s.get("date", "")))
+    recent = sessions[-SESSION_WINDOW:] if sessions else []
 
     spans: list[TaggedSpan] = []
     tagged_text: set[str] = set()
@@ -121,7 +126,10 @@ def collect_spans(client: dict) -> tuple[list[TaggedSpan], list[str]]:
     unclassified: list[str] = []
     seen: set[str] = set()
     for session in recent:
-        for sentence in split_sentences(session.get("text", "")):
+        raw_text = session.get("text", "")
+        if not isinstance(raw_text, str):
+            raw_text = str(raw_text or "")
+        for sentence in split_sentences(raw_text):
             cleaned = sentence.strip()
             key = cleaned.casefold()
             if cleaned and cleaned not in tagged_text and key not in seen:
@@ -145,12 +153,15 @@ def build_brief(
     consent_records = build_consent_records(client)
     result = _engine.filter(spans, consent_records, role, purpose, at=now)
 
-    digest = build_digest(client.get("actions", []), now)
+    raw_actions = client.get("actions") or []
+    actions_list = [a for a in raw_actions if isinstance(a, dict)]
+    digest = build_digest(actions_list, now)
 
+    raw_goals = client.get("goals") or []
     goals = [
-        f"{g['text']} ({g['status']})"
-        for g in client.get("goals", [])
-        if g.get("status") != "completed"
+        f"{g.get('text', '')} ({g.get('status', 'open')})".strip()
+        for g in raw_goals
+        if isinstance(g, dict) and g.get("status") != "completed" and g.get("text")
     ]
 
     permitted_categories = sorted({s.category.value for s in result.permitted_spans})
@@ -241,7 +252,8 @@ def build_brief(
                 len(result.permitted_spans), len(spans)
             ),
             "why_shown": [
-                {"category": e.category, "detail": e.sentence} for e in explanation.why_shown
+                {"category": e.category, "detail": e.sentence}
+                for e in explanation.why_shown
             ],
             "why_withheld": [
                 {

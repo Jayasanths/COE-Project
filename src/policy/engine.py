@@ -10,6 +10,7 @@ RULES:
   - Low-confidence tag (< threshold) → treat as sensitive, DENY.
 This file is HAND-WRITTEN. Agents must not modify it.
 """
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -107,7 +108,11 @@ class ConsentPolicyEngine:
         # Index active consent by (category, role, purpose)
         active: set[tuple[SensitivityCategory, RecipientRole, ConsentPurpose]] = set()
         for rec in consent_records:
-            if rec.is_active(at) and rec.recipient_role == recipient_role and rec.purpose == purpose:
+            if (
+                rec.is_active(at)
+                and rec.recipient_role == recipient_role
+                and rec.purpose == purpose
+            ):
                 active.add((rec.category, rec.recipient_role, rec.purpose))
 
         seen_categories: set[SensitivityCategory] = set()
@@ -179,5 +184,7 @@ class ConsentPolicyEngine:
             escalation_message=(
                 f"Safety-relevant content withheld under '{span.category.value}' "
                 "— escalate to supervisor before session."
-            ) if escalate else "",
+            )
+            if escalate
+            else "",
         )

@@ -46,6 +46,7 @@ __all__ = ["tag", "split_sentences", "backend_name", "TAGGER_VERSION"]
 
 # ── Pattern compilation ────────────────────────────────────────────────────
 
+
 def _compile(pattern: Pattern) -> re.Pattern[str]:
     """Compile one pattern to a case-insensitive regex.
 
@@ -124,7 +125,9 @@ def split_sentences(text: str) -> list[str]:
     so every withheld span was re-added to the brief as "general" narrative.
     Segmentation that round-trips is a consent control, not a formatting nicety.
     """
-    text = text.strip()
+    if text is None or not isinstance(text, str):
+        return []
+    text = text.replace("\x00", " ").strip()
     if not text:
         return []
 
@@ -151,6 +154,7 @@ def split_sentences(text: str) -> list[str]:
 
 # ── Span id ────────────────────────────────────────────────────────────────
 
+
 def _span_id(session_id: str, index: int, category: SensitivityCategory) -> str:
     """Stable 8-char id. Deterministic across processes and machines."""
     key = f"{session_id}|{index}|{category.value}|{TAGGER_VERSION}".encode()
@@ -158,6 +162,7 @@ def _span_id(session_id: str, index: int, category: SensitivityCategory) -> str:
 
 
 # ── Tagging ────────────────────────────────────────────────────────────────
+
 
 def tag(text: str, session_id: str) -> list[TaggedSpan]:
     """Tag `text` and return spans sorted by (sentence order, category).

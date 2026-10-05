@@ -6,7 +6,7 @@ Consent-aware continuity summary for psychiatric discharge handovers.
 - Recipient role: **counsellor**, purpose **handover**
 - Evaluation date (fixed): **2025-03-01**
 - Metrics passing target: **7/7**
-- Report generated: 2026-08-22T05:14:05+00:00Z
+- Report generated: 2026-10-05T06:48:03+00:00Z
 
 Baseline is last-three-sessions verbatim concatenation with regex keyword
 redaction — what a ward under time pressure actually does today.

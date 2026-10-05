@@ -5,31 +5,62 @@
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-paper text-ink font-sans antialiased selection:bg-clinical-light selection:text-clinical overflow-hidden;
+    @apply bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white overflow-hidden;
   }
 
   :focus-visible {
-    @apply outline-none ring-2 ring-clinical ring-offset-2 ring-offset-paper;
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-slate-950;
   }
 }
 
 @layer components {
   .label-micro {
-    @apply font-mono text-micro uppercase tracking-wider text-muted font-medium;
+    @apply font-mono text-[10px] uppercase tracking-wider text-slate-400 font-semibold;
+  }
+
+  /* Glassmorphic luxury card */
+  .glass-card {
+    @apply bg-slate-900/80 backdrop-blur-md border border-slate-800/80 rounded-xl shadow-card transition-all duration-200;
+  }
+
+  .glass-card-hover {
+    @apply hover:border-slate-700/90 hover:bg-slate-900/95 hover:shadow-float;
   }
 
   .card {
-    @apply bg-card border border-rule rounded-lg shadow-card transition-all;
+    @apply bg-white border border-slate-200/80 rounded-xl shadow-card transition-all duration-200;
   }
 
   .banner {
-    @apply border-l-4 bg-card border-y border-r border-rule rounded-r-lg px-4 py-3 shadow-card;
+    @apply border-l-4 bg-white border-y border-r border-slate-200 rounded-r-xl px-4 py-3 shadow-card;
   }
 
-  /* Custom clinical scrollbar */
+  /* Status badges */
+  .badge-emerald {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20;
+  }
+
+  .badge-rose {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-500/10 text-rose-400 border border-rose-500/20;
+  }
+
+  .badge-amber {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20;
+  }
+
+  .badge-indigo {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20;
+  }
+
+  .badge-cyan {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20;
+  }
+
+  /* Sleek modern scrollbars */
   .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -40,20 +71,20 @@
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-slate-700/60 rounded-full hover:bg-slate-600/80;
+  }
+
+  .light-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .light-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .light-scrollbar::-webkit-scrollbar-thumb {
     @apply bg-slate-300 rounded-full hover:bg-slate-400;
-  }
-
-  /* Dark theme scrollbar for sidebar */
-  .dark-scrollbar::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  .dark-scrollbar::-webkit-scrollbar-track {
-    background: #0f172a;
-  }
-
-  .dark-scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-slate-700 rounded-full hover:bg-slate-600;
   }
 }
 
@@ -64,6 +95,15 @@
 
 .animate-pulse-subtle {
   animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes float-glow {
+  0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 12px rgba(99, 102, 241, 0.3)); }
+  50% { transform: translateY(-3px); filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.5)); }
+}
+
+.animate-float-glow {
+  animation: float-glow 4s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

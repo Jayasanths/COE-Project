@@ -105,7 +105,36 @@ this interface.
 
 ---
 
-## 5. Understand the tier badge
+## 5. Stakeholder Validation Walkthrough Script
+
+For reviewers, examiners, and clinical governance auditors, execute the following 4 structured walkthrough scenarios in the workstation UI:
+
+### 🔹 Walkthrough 1: Multi-Disciplinary Role Shift (Privacy & Minimum Data)
+1. Select Client **C005** (or click the "Role Shift" scenario preset).
+2. Set Viewing Role to **Counsellor**: Note the presence of trauma and psychological history, with financial/forensic withheld.
+3. Switch Viewing Role to **Social Worker**: Notice the summary immediately updates to highlight housing support and benefits, while withholding therapy trauma details.
+4. Switch to **Psychiatrist**: Summary reveals medication history and diagnostic records.
+5. Expand *"Why this brief looks like this"* to inspect the exact consent grant date, purpose, and role rules.
+
+### 🔹 Walkthrough 2: Acute Safety Carve-Out & Action Escalation
+1. Select Client **C003** (or the "Safety Escalation" scenario preset).
+2. Observe the prominent red banner: `SAFETY ESCALATION — Risk-relevant content withheld`.
+3. Check the **Action Tracker**: Observe the Level 3 Red Flag for overdue housing/nursing action (>7 days overdue).
+4. Click **"Verify / Acknowledge"** on the action to record clinical sign-off, enter resolution notes, and observe live status update.
+
+### 🔹 Walkthrough 3: Clinical Conflict & Contradiction Handling
+1. Select Client **C008** (or the "Contradiction" preset).
+2. Observe the red `CLINICAL CONFLICT` alert highlighting opposing statements regarding substance abstinence vs. relapse side-by-side.
+3. Note that the system refrains from hallucinating or picking a winner, keeping both statements visible for clinical discernment.
+
+### 🔹 Walkthrough 4: Degraded Mode & System Resilience (T1 ➔ T4)
+1. Use the **Tier Simulator** in the top bar to force `Tier 3 (Structured Facts Card)`.
+2. Notice narrative text is suppressed, but high-priority goals, pending actions, and consent ledger remain 100% accessible.
+3. Open the **System Metrics Modal** (top-right `Metrics` button) to inspect empirical evaluation results: 0.0 consent leakage rate, 1.0 action retention, and 100% tagger recall on human-annotated clinical notes.
+
+---
+
+## 6. Understand the tier badge
 
 | Badge | Meaning |
 |---|---|

@@ -34,6 +34,11 @@ export interface ActionItem {
   escalation_level: number;
   days_overdue: number;
   escalation_note: string;
+  verified?: boolean;
+  verified_by_role?: string;
+  verified_at?: string;
+  verification_status?: string;
+  outcome_notes?: string;
 }
 
 export interface WithheldReason {
@@ -128,8 +133,27 @@ async function getJson<T>(path: string): Promise<T> {
   if (!response.ok) {
     let detail = `Request failed (${response.status})`;
     try {
-      const body = await response.json();
-      if (body?.detail) detail = String(body.detail);
+      const data = await response.json();
+      if (data?.detail) detail = String(data.detail);
+    } catch {
+      /* fallback */
+    }
+    throw new Error(detail);
+  }
+  return response.json() as Promise<T>;
+}
+
+async function postJson<T>(path: string, body: unknown): Promise<T> {
+  const response = await fetch(`${API_BASE}${path}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok) {
+    let detail = `Request failed (${response.status})`;
+    try {
+      const data = await response.json();
+      if (data?.detail) detail = String(data.detail);
     } catch {
       /* fallback */
     }
@@ -140,6 +164,13 @@ async function getJson<T>(path: string): Promise<T> {
 
 export const api = {
   listClients: () => getJson<{ clients: ClientRow[] }>("/clients/"),
+  listAllActions: () =>
+    getJson<{
+      actions: (ActionItem & { client_id: string; pseudonym: string })[];
+      total_count: number;
+      total_red_flags: number;
+      total_verified: number;
+    }>("/actions/"),
   getBrief: (clientId: string, role: RecipientRole, tier?: number | null) => {
     const tierQuery = tier ? `&tier=${tier}` : "";
     return getJson<Brief>(`/briefs/${clientId}?role=${role}&purpose=handover${tierQuery}`);
@@ -147,6 +178,31 @@ export const api = {
   getConsent: (clientId: string) =>
     getJson<{ client_id: string; pseudonym: string; consents: ConsentRow[] }>(
       `/consent/${clientId}`,
+    ),
+  getActions: (clientId: string) =>
+    getJson<{
+      client_id: string;
+      actions: ActionItem[];
+      red_flags: string[];
+      notifications: string[];
+      verified_count: number;
+      unverified_count: number;
+      verification_rate: number;
+      all_high_priority_have_ownership: boolean;
+    }>(`/actions/${clientId}`),
+  verifyAction: (
+    clientId: string,
+    actionId: string,
+    payload: {
+      status: string;
+      verified_by_role: string;
+      outcome_notes: string;
+      supervisor_id?: string;
+    }
+  ) =>
+    postJson<{ status: string; action_id: string; action: ActionItem }>(
+      `/actions/${clientId}/${actionId}/verify`,
+      payload
     ),
 };
 

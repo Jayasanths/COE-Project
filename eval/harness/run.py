@@ -91,6 +91,7 @@ def _leaks(span_text: str, brief_text: str) -> bool:
 
 # ── Role-specific ground truth ─────────────────────────────────────────────
 
+
 def role_ground_truth(client: dict) -> dict:
     """Derive what *should* be disclosable to EVAL_ROLE, from consent records."""
     records = build_consent_records(client)
@@ -107,7 +108,11 @@ def role_ground_truth(client: dict) -> dict:
         "permitted_categories": sorted(permitted & present),
         "withheld_categories": sorted(present - permitted),
         "withheld_spans": [
-            {"text": s.text, "category": s.category.value, "safety": s.is_safety_relevant}
+            {
+                "text": s.text,
+                "category": s.category.value,
+                "safety": s.is_safety_relevant,
+            }
             for s in spans
             if s.category.value not in permitted
         ],
@@ -116,6 +121,7 @@ def role_ground_truth(client: dict) -> dict:
 
 
 # ── Metrics ────────────────────────────────────────────────────────────────
+
 
 def consent_leakage_rate(results: list[dict], truths: list[dict]) -> float:
     """Fraction of briefs containing content from a non-permitted category.
@@ -247,6 +253,7 @@ def fallback_availability(results: list[dict], expected: int) -> float:
 
 
 # ── Runner ─────────────────────────────────────────────────────────────────
+
 
 @dataclass
 class MetricResult:
@@ -423,7 +430,9 @@ def main() -> int:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(payload, indent=2))
 
-    print(f"\n── Evaluation ({len(clients)} clients, role={EVAL_ROLE.value}) ──────────")
+    print(
+        f"\n── Evaluation ({len(clients)} clients, role={EVAL_ROLE.value}) ──────────"
+    )
     for m in metrics:
         mark = "PASS" if m.passed else "FAIL"
         print(

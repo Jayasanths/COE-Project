@@ -53,6 +53,7 @@ def get_store() -> dict[str, dict]:
 
 # ── Response models ────────────────────────────────────────────────────────
 
+
 class ActionItem(BaseModel):
     action_id: str
     description: str
@@ -64,6 +65,11 @@ class ActionItem(BaseModel):
     escalation_level: int = 0
     days_overdue: int = 0
     escalation_note: str = ""
+    verified: bool = False
+    verified_by_role: str = ""
+    verified_at: str = ""
+    verification_status: str = "unverified"
+    outcome_notes: str = ""
 
 
 class WithheldReasonItem(BaseModel):
@@ -129,6 +135,7 @@ class HandoverBrief(BaseModel):
 
 
 # ── Endpoints ──────────────────────────────────────────────────────────────
+
 
 @router.get("/{client_id}", response_model=HandoverBrief)
 def get_brief(

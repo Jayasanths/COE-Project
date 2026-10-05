@@ -1,8 +1,8 @@
 """SQLModel database models — mirrors the 7-table schema."""
+
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Optional
 
 from sqlmodel import Field, SQLModel
 
@@ -40,8 +40,8 @@ class ConsentRecord(SQLModel, table=True):
     purpose: str
     granted: bool
     granted_at: datetime
-    expires_at: Optional[datetime] = None
-    revoked_at: Optional[datetime] = None
+    expires_at: datetime | None = None
+    revoked_at: datetime | None = None
 
 
 class ClientGoal(SQLModel, table=True):
@@ -69,7 +69,7 @@ class DisclosureAudit(SQLModel, table=True):
     event_id: str = Field(primary_key=True)
     brief_id: str
     recipient_role: str
-    categories_shown: str   # JSON list
+    categories_shown: str  # JSON list
     categories_withheld: str  # JSON list
     override_flag: bool = False
     justification: str = ""

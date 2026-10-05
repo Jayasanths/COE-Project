@@ -28,3 +28,11 @@ export function useConsent(clientId: string | undefined) {
     enabled: Boolean(clientId),
   });
 }
+
+export function useAllActions() {
+  return useQuery({
+    queryKey: ["all-actions"],
+    queryFn: api.listAllActions,
+    refetchInterval: 15000,
+  });
+}

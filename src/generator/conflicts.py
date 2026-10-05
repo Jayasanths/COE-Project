@@ -51,34 +51,68 @@ POLARITY_RULES: tuple[PolarityRule, ...] = (
         positive_label="abstinence reported",
         negative_label="ongoing use or relapse reported",
         positive_cues=("sober", "sobriety", "abstinent", "abstinence", "clean for"),
-        negative_cues=("relapse", "relapsed", "returned to", "ongoing alcohol use",
-                       "ongoing use", "using again", "units daily"),
+        negative_cues=(
+            "relapse",
+            "relapsed",
+            "returned to",
+            "ongoing alcohol use",
+            "ongoing use",
+            "using again",
+            "units daily",
+        ),
     ),
     PolarityRule(
         category=C.MEDICATION,
         positive_label="adherent, no adverse effects",
         negative_label="non-adherence or side effects reported",
-        positive_cues=("no side effects", "adherent", "compliant",
-                       "within therapeutic range"),
-        negative_cues=("non-adherent", "not adherent", "missed dose", "missed doses",
-                       "declined medication", "side effects reported"),
+        positive_cues=(
+            "no side effects",
+            "adherent",
+            "compliant",
+            "within therapeutic range",
+        ),
+        negative_cues=(
+            "non-adherent",
+            "not adherent",
+            "missed dose",
+            "missed doses",
+            "declined medication",
+            "side effects reported",
+        ),
     ),
     PolarityRule(
         category=C.SAFETY_RISK,
         positive_label="no current risk identified",
         negative_label="active risk indicators reported",
-        positive_cues=("no current risk", "no risk identified", "protective factors strong",
-                       "denies ideation"),
-        negative_cues=("suicidal ideation", "self-harm urges", "self harm urges",
-                       "risk assessment completed", "expressed intent"),
+        positive_cues=(
+            "no current risk",
+            "no risk identified",
+            "protective factors strong",
+            "denies ideation",
+        ),
+        negative_cues=(
+            "suicidal ideation",
+            "self-harm urges",
+            "self harm urges",
+            "risk assessment completed",
+            "expressed intent",
+        ),
     ),
     PolarityRule(
         category=C.FAMILY_CONFLICT,
         positive_label="family contact going well",
         negative_label="family contact causing distress or estrangement",
-        positive_cues=("family contact positive", "rebuilt contact", "supportive family"),
-        negative_cues=("estranged", "heightened distress", "boundaries discussed",
-                       "declined contact"),
+        positive_cues=(
+            "family contact positive",
+            "rebuilt contact",
+            "supportive family",
+        ),
+        negative_cues=(
+            "estranged",
+            "heightened distress",
+            "boundaries discussed",
+            "declined contact",
+        ),
     ),
 )
 
@@ -129,7 +163,9 @@ def detect_conflicts(permitted_spans: list[dict]) -> list[Conflict]:
     """
     by_category: dict[str, list[str]] = {}
     for span in permitted_spans:
-        by_category.setdefault(span.get("category", ""), []).append(span.get("text", ""))
+        by_category.setdefault(span.get("category", ""), []).append(
+            span.get("text", "")
+        )
 
     conflicts: list[Conflict] = []
     for category_value, texts in sorted(by_category.items()):

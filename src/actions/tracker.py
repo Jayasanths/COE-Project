@@ -28,6 +28,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import datetime
+from typing import Any
 
 # Lower bound in whole days overdue for each level.
 LEVEL_1_DAYS = 1
@@ -59,6 +60,11 @@ class TrackedAction:
     escalation_level: int
     days_overdue: int
     escalation_note: str
+    verified: bool = False
+    verified_by_role: str = ""
+    verified_at: str = ""
+    verification_status: str = "unverified"
+    outcome_notes: str = ""
 
     @property
     def is_high_priority(self) -> bool:
@@ -78,6 +84,16 @@ class TrackedAction:
         """
         return bool(self.owner_role and self.due_date)
 
+    @property
+    def is_verified(self) -> bool:
+        """Returns True if the action outcome or handover has been verified."""
+        return self.verified or self.verification_status in {
+            "verified",
+            "verified_valid",
+            "outcome_confirmed",
+            "escalated_resolved",
+        }
+
     def to_dict(self) -> dict:
         return {
             "action_id": self.action_id,
@@ -90,6 +106,11 @@ class TrackedAction:
             "escalation_level": self.escalation_level,
             "days_overdue": self.days_overdue,
             "escalation_note": self.escalation_note,
+            "verified": self.is_verified,
+            "verified_by_role": self.verified_by_role,
+            "verified_at": self.verified_at,
+            "verification_status": self.verification_status,
+            "outcome_notes": self.outcome_notes,
         }
 
 
@@ -133,6 +154,10 @@ def track(action: dict, now: datetime) -> TrackedAction:
     status = str(action.get("status", "open"))
     due_date = str(action.get("due_date", ""))
     level = escalation_level(due_date, now, status)
+    verified = bool(action.get("verified", False))
+    verification_status = str(
+        action.get("verification_status", "verified" if verified else "unverified")
+    )
     return TrackedAction(
         action_id=str(action.get("action_id", "")),
         description=str(action.get("description", "")),
@@ -144,6 +169,11 @@ def track(action: dict, now: datetime) -> TrackedAction:
         escalation_level=level,
         days_overdue=days_overdue(due_date, now),
         escalation_note=LEVEL_ACTIONS[level],
+        verified=verified,
+        verified_by_role=str(action.get("verified_by_role", "")),
+        verified_at=str(action.get("verified_at", "")),
+        verification_status=verification_status,
+        outcome_notes=str(action.get("outcome_notes", "")),
     )
 
 
@@ -154,7 +184,11 @@ def track_all(actions: list[dict], now: datetime) -> list[TrackedAction]:
     desc, then due date. The reader's eye lands on the thing that will hurt
     someone first.
     """
-    tracked = [track(a, now) for a in actions if str(a.get("status", "open")).lower() not in CLOSED_STATUSES]
+    tracked = [
+        track(a, now)
+        for a in actions
+        if str(a.get("status", "open")).lower() not in CLOSED_STATUSES
+    ]
     tracked.sort(
         key=lambda a: (
             -a.escalation_level,
@@ -182,6 +216,20 @@ class ActionDigest:
     def all_high_priority_have_ownership(self) -> bool:
         return all(a.has_full_ownership for a in self.high_priority)
 
+    @property
+    def verified_count(self) -> int:
+        return sum(1 for a in self.actions if a.is_verified)
+
+    @property
+    def unverified_count(self) -> int:
+        return len(self.actions) - self.verified_count
+
+    @property
+    def verification_rate(self) -> float:
+        if not self.actions:
+            return 1.0
+        return self.verified_count / len(self.actions)
+
 
 def build_digest(actions: list[dict], now: datetime) -> ActionDigest:
     """Track actions and derive the notifications and red flags for a brief."""
@@ -207,6 +255,78 @@ def build_digest(actions: list[dict], now: datetime) -> ActionDigest:
             )
 
     return digest
+
+
+def verify_action_integrity(action: dict | TrackedAction) -> dict[str, Any]:
+    """Verify follow-up ownership, due-date syntax, and escalation status.
+
+    Returns a verification dict containing validity booleans and diagnostic reasons.
+    """
+    raw = action.to_dict() if isinstance(action, TrackedAction) else action
+    owner_role = str(raw.get("owner_role", "")).strip()
+    due_date = str(raw.get("due_date", "")).strip()
+    parsed_date = _parse_date(due_date)
+    has_owner = bool(owner_role)
+    has_valid_due_date = parsed_date is not None
+    priority = str(raw.get("priority", "MEDIUM")).upper()
+    valid_priority = priority in {"HIGH", "MEDIUM", "LOW"}
+
+    is_complete = has_owner and has_valid_due_date and valid_priority
+
+    return {
+        "action_id": raw.get("action_id", ""),
+        "is_valid": is_complete,
+        "has_owner": has_owner,
+        "owner_role": owner_role,
+        "has_valid_due_date": has_valid_due_date,
+        "due_date": due_date,
+        "valid_priority": valid_priority,
+        "priority": priority,
+        "verified": bool(raw.get("verified", False)),
+        "verification_status": raw.get("verification_status", "unverified"),
+    }
+
+
+def record_action_outcome(
+    action: dict,
+    outcome_status: str,
+    verified_by_role: str,
+    outcome_notes: str,
+    now: datetime | None = None,
+) -> dict:
+    """Record an outcome verification or status resolution on an action dict."""
+    ts = (now or datetime.utcnow()).isoformat()
+    updated = dict(action)
+    updated["status"] = outcome_status
+    updated["verified"] = True
+    updated["verified_by_role"] = verified_by_role
+    updated["verified_at"] = ts
+    updated["outcome_notes"] = outcome_notes
+    if outcome_status.lower() in CLOSED_STATUSES:
+        updated["verification_status"] = "outcome_confirmed"
+    else:
+        updated["verification_status"] = "verified_valid"
+    return updated
+
+
+def verify_escalation_resolution(
+    action: dict,
+    resolution_notes: str,
+    supervisor_id: str,
+    now: datetime | None = None,
+) -> dict:
+    """Explicitly resolve and record audit sign-off for escalated overdue actions."""
+    ts = (now or datetime.utcnow()).isoformat()
+    updated = dict(action)
+    updated["status"] = "completed"
+    updated["verified"] = True
+    updated["verified_by_role"] = "supervisor"
+    updated["verified_at"] = ts
+    updated["verification_status"] = "escalated_resolved"
+    updated["outcome_notes"] = (
+        f"Supervisor ({supervisor_id}) resolution: {resolution_notes}"
+    )
+    return updated
 
 
 def dropped_high_priority(

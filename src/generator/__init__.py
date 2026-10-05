@@ -1,4 +1,5 @@
 """Summary generation, fallback ladder, conflict detection and explanations."""
+
 from .conflicts import Conflict, detect_conflicts
 from .explainer import Explanation, WithholdReason, explain
 from .generator import TIER_LABELS, BriefOutput, generate_brief, grounding_score

@@ -60,7 +60,6 @@ PATTERNS: tuple[Pattern, ...] = (
     # Overdose is substance-adjacent AND safety-relevant.
     Pattern("overdose", C.SUBSTANCE_USE, 0.96, safety=True),
     Pattern("drinking", C.SUBSTANCE_USE, 0.74),
-
     # ── Trauma history ─────────────────────────────────────────────────────
     Pattern("childhood abuse", C.TRAUMA_HISTORY, 0.97),
     Pattern("abuse", C.TRAUMA_HISTORY, 0.88),
@@ -71,7 +70,6 @@ PATTERNS: tuple[Pattern, ...] = (
     Pattern("past experiences", C.TRAUMA_HISTORY, 0.72),
     Pattern("difficulty trusting", C.TRAUMA_HISTORY, 0.78),
     Pattern("distress when discussing", C.TRAUMA_HISTORY, 0.80),
-
     # ── Forensic / legal ───────────────────────────────────────────────────
     Pattern("court appearance", C.FORENSIC_LEGAL, 0.95),
     Pattern("court", C.FORENSIC_LEGAL, 0.84),
@@ -83,7 +81,6 @@ PATTERNS: tuple[Pattern, ...] = (
     Pattern("prison", C.FORENSIC_LEGAL, 0.93),
     Pattern("custody", C.FORENSIC_LEGAL, 0.80),
     Pattern("solicitor", C.FORENSIC_LEGAL, 0.86),
-
     # ── Sexual health ──────────────────────────────────────────────────────
     Pattern("sexual health", C.SEXUAL_HEALTH, 0.96),
     Pattern("GUM clinic", C.SEXUAL_HEALTH, 0.95),
@@ -94,7 +91,6 @@ PATTERNS: tuple[Pattern, ...] = (
     Pattern("syphilis", C.SEXUAL_HEALTH, 0.97),
     Pattern("screening discussed", C.SEXUAL_HEALTH, 0.76),
     Pattern("contraception", C.SEXUAL_HEALTH, 0.93),
-
     # ── Family conflict ────────────────────────────────────────────────────
     Pattern("family visit", C.FAMILY_CONFLICT, 0.89),
     Pattern("estranged", C.FAMILY_CONFLICT, 0.94),
@@ -103,7 +99,6 @@ PATTERNS: tuple[Pattern, ...] = (
     Pattern("primary family", C.FAMILY_CONFLICT, 0.84),
     Pattern("boundaries discussed", C.FAMILY_CONFLICT, 0.78),
     Pattern("family", C.FAMILY_CONFLICT, 0.66),  # below threshold on its own
-
     # ── Medication ─────────────────────────────────────────────────────────
     Pattern("clozapine", C.MEDICATION, 0.97),
     Pattern("risperidone", C.MEDICATION, 0.97),
@@ -119,7 +114,6 @@ PATTERNS: tuple[Pattern, ...] = (
     Pattern("medication compliance", C.MEDICATION, 0.93),
     Pattern("therapeutic range", C.MEDICATION, 0.90),
     Pattern("side effects", C.MEDICATION, 0.83),
-
     # ── Financial ──────────────────────────────────────────────────────────
     Pattern("rent arrears", C.FINANCIAL, 0.96),
     Pattern("arrears", C.FINANCIAL, 0.94),
@@ -129,7 +123,6 @@ PATTERNS: tuple[Pattern, ...] = (
     Pattern("debt", C.FINANCIAL, 0.91),
     Pattern("financial", C.FINANCIAL, 0.85, whole_word=False),
     Pattern("money", C.FINANCIAL, 0.68),  # below threshold on its own
-
     # ── Safety risk (always safety-relevant) ───────────────────────────────
     Pattern("suicidal ideation", C.SAFETY_RISK, 0.98, safety=True),
     Pattern("suicidal", C.SAFETY_RISK, 0.96, safety=True),

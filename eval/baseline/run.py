@@ -3,6 +3,7 @@ Baseline: last-3-sessions verbatim concatenation + regex keyword redaction.
 This is what a rushed ward does today. It fails in well-documented ways.
 Run: uv run python -m eval.baseline.run
 """
+
 from __future__ import annotations
 
 import json
@@ -32,8 +33,8 @@ def baseline_brief(client: dict) -> dict:
         "method": "baseline_regex_redact",
         "brief": brief_text,
         "word_count": len(brief_text.split()),
-        "actions_included": [],   # baseline carries no action tracking
-        "withheld_flags": [],     # baseline never flags withheld topics
+        "actions_included": [],  # baseline carries no action tracking
+        "withheld_flags": [],  # baseline never flags withheld topics
         "escalation_flags": [],
     }
 

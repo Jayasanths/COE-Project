@@ -1,4 +1,5 @@
 """Consent console endpoint (read-only)."""
+
 from __future__ import annotations
 
 from datetime import datetime

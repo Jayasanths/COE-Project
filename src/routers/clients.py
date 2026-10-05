@@ -1,11 +1,13 @@
 """Client list endpoint."""
+
 from __future__ import annotations
+
+from datetime import datetime
 
 from fastapi import APIRouter
 
 from ..actions.tracker import track_all
 from .briefs import get_store
-from datetime import datetime
 
 router = APIRouter()
 
@@ -31,5 +33,7 @@ def list_clients() -> dict:
                 "red_flags": sum(1 for a in tracked if a.is_red_flag),
             }
         )
-    clients.sort(key=lambda c: (-c["red_flags"], -c["open_high_priority"], c["client_id"]))
+    clients.sort(
+        key=lambda c: (-c["red_flags"], -c["open_high_priority"], c["client_id"])
+    )
     return {"clients": clients}

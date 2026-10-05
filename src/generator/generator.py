@@ -30,7 +30,9 @@ import re
 from dataclasses import dataclass, field
 from typing import Any
 
-from .llm import LLMUnavailable, generate as llm_generate, is_enabled as llm_enabled
+from .llm import LLMUnavailable
+from .llm import generate as llm_generate
+from .llm import is_enabled as llm_enabled
 
 TIER_LABELS: dict[int, str] = {
     1: "AI-generated summary (tier 1)",
@@ -104,6 +106,7 @@ class BriefOutput:
 
 # ── Grounding ──────────────────────────────────────────────────────────────
 
+
 def _content_words(text: str) -> set[str]:
     return {w for w in _WORD.findall(text.lower()) if w not in _FUNCTION_WORDS}
 
@@ -133,6 +136,7 @@ def grounding_score(summary: str, source: str) -> float:
 
 
 # ── Tier 1 ─────────────────────────────────────────────────────────────────
+
 
 def _tier1(context: dict) -> BriefOutput:
     spans = _safe_list(context.get("permitted_spans"))
@@ -165,6 +169,7 @@ def _tier1(context: dict) -> BriefOutput:
 
 # ── Tier 2 ─────────────────────────────────────────────────────────────────
 
+
 def _dedupe(sentences: list[str]) -> list[str]:
     """Drop repeats while preserving first-seen order.
 
@@ -188,7 +193,9 @@ def _tier2(context: dict) -> BriefOutput:
     if not spans:
         raise ValueError("tier 2 unavailable: no permitted spans to extract")
 
-    sentences = _dedupe([str(s.get("text", "")) for s in spans])[:MAX_EXTRACTIVE_SENTENCES]
+    sentences = _dedupe([str(s.get("text", "")) for s in spans])[
+        :MAX_EXTRACTIVE_SENTENCES
+    ]
     kept = set(sentences)
     return BriefOutput(
         tier=2,
@@ -203,6 +210,7 @@ def _tier2(context: dict) -> BriefOutput:
 
 
 # ── Tier 3 ─────────────────────────────────────────────────────────────────
+
 
 def _tier3(context: dict) -> BriefOutput:
     """Structured facts only — no free text, nothing that reads as narrative.
@@ -236,9 +244,7 @@ def _tier3(context: dict) -> BriefOutput:
     if not (facts["goals"] or facts["open_actions"] or facts["withheld_categories"]):
         raise ValueError("tier 3 unavailable: no structured facts to show")
 
-    lines = [
-        "Structured facts card — no disclosable session narrative for this role."
-    ]
+    lines = ["Structured facts card — no disclosable session narrative for this role."]
     if facts["withheld_categories"]:
         lines.append(
             f"{len(facts['withheld_categories'])} topic(s) withheld under client consent."
@@ -258,6 +264,7 @@ def _tier3(context: dict) -> BriefOutput:
 
 
 # ── Tier 4 ─────────────────────────────────────────────────────────────────
+
 
 def _tier4(context: dict) -> BriefOutput:
     """The floor. Always succeeds, by construction.
@@ -347,5 +354,8 @@ def generate_brief(
         return output
 
     fallback = _tier4(permitted_context)
-    fallback.degradation_reasons = [*reasons, "all tiers failed; emitted manual checklist"]
+    fallback.degradation_reasons = [
+        *reasons,
+        "all tiers failed; emitted manual checklist",
+    ]
     return fallback

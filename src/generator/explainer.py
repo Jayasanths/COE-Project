@@ -156,9 +156,15 @@ def _classify_withhold(
     for_category = [r for r in records if r.category == category]
 
     if not for_category:
-        return WithholdReason.LOW_CONFIDENCE if low_confidence else WithholdReason.NO_RECORD
+        return (
+            WithholdReason.LOW_CONFIDENCE
+            if low_confidence
+            else WithholdReason.NO_RECORD
+        )
 
-    matching = [r for r in for_category if r.recipient_role == role and r.purpose == purpose]
+    matching = [
+        r for r in for_category if r.recipient_role == role and r.purpose == purpose
+    ]
 
     if matching:
         if any(r.revoked_at is not None and r.revoked_at <= at for r in matching):
@@ -226,7 +232,9 @@ def explain(
                 category=category.value,
                 consent_id=f"{authorising.client_id}:{category.value}:{role.value}",
                 granted_at=authorising.granted_at.isoformat(),
-                expires_at=authorising.expires_at.isoformat() if authorising.expires_at else None,
+                expires_at=authorising.expires_at.isoformat()
+                if authorising.expires_at
+                else None,
                 recipient_role=authorising.recipient_role.value,
                 purpose=authorising.purpose.value,
             )

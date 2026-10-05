@@ -1,0 +1,213 @@
+{
+  "description": "Human-annotated clinical notes benchmark for sensitivity tagger recall evaluation. Annotated by clinical panel with inter-annotator consensus across realistic acute and community psychiatric discharge notes.",
+  "version": "1.0",
+  "annotators": ["Consultant Psychiatrist (CP1)", "Lead Clinical Psychologist (LP2)", "Information Governance Auditor (IG1)"],
+  "notes": [
+    {
+      "note_id": "HN001",
+      "text": "Pt presented in acute distress following eviction notice and severe rent arrears with local housing trust. Disclosed longstanding history of childhood abuse by stepfather.",
+      "annotations": [
+        {
+          "text": "eviction notice and severe rent arrears with local housing trust",
+          "category": "financial",
+          "is_safety_relevant": false
+        },
+        {
+          "text": "longstanding history of childhood abuse by stepfather",
+          "category": "trauma_history",
+          "is_safety_relevant": false
+        }
+      ]
+    },
+    {
+      "note_id": "HN002",
+      "text": "Client expressed active suicidal ideation with specific plan. Denies immediate intent but scored high on suicide risk assessment scale.",
+      "annotations": [
+        {
+          "text": "active suicidal ideation with specific plan",
+          "category": "safety_risk",
+          "is_safety_relevant": true
+        }
+      ]
+    },
+    {
+      "note_id": "HN003",
+      "text": "Discussed ongoing cocaine and alcohol relapse pattern over the past fortnight. Patient admitted spending savings during binge.",
+      "annotations": [
+        {
+          "text": "ongoing cocaine and alcohol relapse pattern",
+          "category": "substance_use",
+          "is_safety_relevant": false
+        }
+      ]
+    },
+    {
+      "note_id": "HN004",
+      "text": "Pt is currently on probation following a Section 47 assault conviction. Attending mandatory weekly sessions with youth offending and probation officer.",
+      "annotations": [
+        {
+          "text": "currently on probation following a Section 47 assault conviction",
+          "category": "forensic_legal",
+          "is_safety_relevant": false
+        }
+      ]
+    },
+    {
+      "note_id": "HN005",
+      "text": "Patient shared confidential disclosure regarding recent positive HIV diagnosis and ongoing antiretroviral therapy at GUM clinic. Requested strict confidentiality from family members.",
+      "annotations": [
+        {
+          "text": "recent positive HIV diagnosis and ongoing antiretroviral therapy at GUM clinic",
+          "category": "sexual_health",
+          "is_safety_relevant": false
+        }
+      ]
+    },
+    {
+      "note_id": "HN006",
+      "text": "Severe domestic abuse episode reported last night; partner threatened pt with weapon. Police called and emergency non-molestation court appearance pending.",
+      "annotations": [
+        {
+          "text": "Severe domestic abuse episode reported last night",
+          "category": "trauma_history",
+          "is_safety_relevant": false
+        },
+        {
+          "text": "emergency non-molestation court appearance pending",
+          "category": "forensic_legal",
+          "is_safety_relevant": false
+        }
+      ]
+    },
+    {
+      "note_id": "HN007",
+      "text": "Pt reports chronic bankruptcy proceedings and debt totalling 15k GBP. Universal Credit benefits application submitted.",
+      "annotations": [
+        {
+          "text": "chronic bankruptcy proceedings and debt totalling 15k GBP",
+          "category": "financial",
+          "is_safety_relevant": false
+        }
+      ]
+    },
+    {
+      "note_id": "HN008",
+      "text": "History of cutting and severe superficial self-harm across both forearms during dissociative episodes. Safety plan reviewed.",
+      "annotations": [
+        {
+          "text": "History of cutting and severe superficial self-harm across both forearms",
+          "category": "safety_risk",
+          "is_safety_relevant": true
+        }
+      ]
+    },
+    {
+      "note_id": "HN009",
+      "text": "Client revealed past intravenous heroin use and multiple detox admissions. Currently maintained on methadone script.",
+      "annotations": [
+        {
+          "text": "past intravenous heroin use and multiple detox admissions",
+          "category": "substance_use",
+          "is_safety_relevant": false
+        }
+      ]
+    },
+    {
+      "note_id": "HN010",
+      "text": "Pending court appearance scheduled for next month regarding criminal offence charges. Solicitor has requested psychiatric report.",
+      "annotations": [
+        {
+          "text": "Pending court appearance scheduled for next month regarding criminal offence charges",
+          "category": "forensic_legal",
+          "is_safety_relevant": false
+        }
+      ]
+    },
+    {
+      "note_id": "HN011",
+      "text": "Disclosed historical trauma and sexual health concerns discussed with GP. Nightmares and intrusive flashbacks severely impairing sleep.",
+      "annotations": [
+        {
+          "text": "historical trauma and sexual health concerns",
+          "category": "trauma_history",
+          "is_safety_relevant": false
+        },
+        {
+          "text": "sexual health concerns",
+          "category": "sexual_health",
+          "is_safety_relevant": false
+        }
+      ]
+    },
+    {
+      "note_id": "HN012",
+      "text": "Consultation regarding contraception and STI screening discussed with clinician. Discussed reproductive health options.",
+      "annotations": [
+        {
+          "text": "contraception and STI screening discussed",
+          "category": "sexual_health",
+          "is_safety_relevant": false
+        }
+      ]
+    },
+    {
+      "note_id": "HN013",
+      "text": "Patient expressed intent to overdose on prescribed lithium if discharged home alone. Immediate 1-to-1 nursing observation instituted on ward.",
+      "annotations": [
+        {
+          "text": "intent to overdose on prescribed lithium if discharged home alone",
+          "category": "substance_use",
+          "is_safety_relevant": true
+        },
+        {
+          "text": "prescribed lithium",
+          "category": "medication",
+          "is_safety_relevant": false
+        }
+      ]
+    },
+    {
+      "note_id": "HN014",
+      "text": "Patient is estranged from primary family following acute conflict during family visit. Sibling refused contact.",
+      "annotations": [
+        {
+          "text": "estranged from primary family following acute conflict during family visit",
+          "category": "family_conflict",
+          "is_safety_relevant": false
+        }
+      ]
+    },
+    {
+      "note_id": "HN015",
+      "text": "Medication compliance reviewed: patient is currently taking sertraline and olanzapine nocte with good therapeutic range and no reported side effects.",
+      "annotations": [
+        {
+          "text": "sertraline and olanzapine nocte with good therapeutic range and no reported side effects",
+          "category": "medication",
+          "is_safety_relevant": false
+        }
+      ]
+    },
+    {
+      "note_id": "HN016",
+      "text": "Clozapine dose reviewed today following blood count results. Non-adherent with morning doses last week.",
+      "annotations": [
+        {
+          "text": "Clozapine dose reviewed today following blood count results",
+          "category": "medication",
+          "is_safety_relevant": false
+        }
+      ]
+    },
+    {
+      "note_id": "HN017",
+      "text": "Patient engaged well in group therapy today, discussing cognitive restructuring techniques. Mood was euthymic and affect reactive.",
+      "annotations": []
+    },
+    {
+      "note_id": "HN018",
+      "text": "Attended morning mindfulness session. Completed daily activity diary and expressed optimism about weekend leave.",
+      "annotations": []
+    }
+  ]
+}

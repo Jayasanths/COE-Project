@@ -130,4 +130,6 @@ def generate(prompt: str) -> LLMResult:
     except json.JSONDecodeError as exc:
         raise LLMUnavailable(f"tier 1 envelope was not JSON: {exc}") from exc
 
-    return LLMResult(summary=_validate_payload(envelope.get("response", "")), model=OLLAMA_MODEL)
+    return LLMResult(
+        summary=_validate_payload(envelope.get("response", "")), model=OLLAMA_MODEL
+    )

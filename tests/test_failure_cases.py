@@ -35,6 +35,7 @@ DISCHARGE = NOW - timedelta(days=30)
 
 # ── Fixtures ───────────────────────────────────────────────────────────────
 
+
 def make_consent(
     category: str,
     role: str = "counsellor",
@@ -56,7 +57,9 @@ def make_consent(
     }
 
 
-def make_session(session_id: str, text: str, days_ago: int = 5, spans: list | None = None) -> dict:
+def make_session(
+    session_id: str, text: str, days_ago: int = 5, spans: list | None = None
+) -> dict:
     return {
         "session_id": session_id,
         "client_id": "C001",
@@ -105,13 +108,17 @@ def make_client(
     }
 
 
-def brief_for(client: dict, role: RecipientRole = RecipientRole.COUNSELLOR, **kwargs) -> dict:
+def brief_for(
+    client: dict, role: RecipientRole = RecipientRole.COUNSELLOR, **kwargs
+) -> dict:
     return build_brief(client, role, ConsentPurpose.HANDOVER, now=NOW, **kwargs)
 
 
 # ── Failure case 1 — consent revoked mid-episode ───────────────────────────
 
-SUBSTANCE_TEXT = "Client admitted to relapse over the weekend — returned to cannabis use."
+SUBSTANCE_TEXT = (
+    "Client admitted to relapse over the weekend — returned to cannabis use."
+)
 
 
 def test_case1_revoked_consent_content_absent_from_brief():
@@ -138,28 +145,42 @@ def test_case1_revocation_flips_a_previously_permitted_brief():
 
     before = brief_for(make_client(sessions, [make_consent("substance_use")]))
     after = brief_for(
-        make_client(sessions, [make_consent("substance_use", revoked_at=NOW - timedelta(days=1))])
+        make_client(
+            sessions,
+            [make_consent("substance_use", revoked_at=NOW - timedelta(days=1))],
+        )
     )
 
     assert "cannabis" in before["summary"].lower()
     assert "cannabis" not in after["summary"].lower()
-    assert any(w["reason_code"] == "revoked" for w in after["explanation"]["why_withheld"])
+    assert any(
+        w["reason_code"] == "revoked" for w in after["explanation"]["why_withheld"]
+    )
 
 
 # ── Failure case 2 — contradictory sessions ────────────────────────────────
+
 
 def test_case2_contradiction_produces_notice_and_keeps_both_statements():
     """Conflicting notes must be surfaced, not silently resolved."""
     client = make_client(
         sessions=[
-            make_session("s1", "Client reports being sober for 3 weeks following discharge.", days_ago=10),
-            make_session("s2", "Client admitted to relapse over the weekend.", days_ago=2),
+            make_session(
+                "s1",
+                "Client reports being sober for 3 weeks following discharge.",
+                days_ago=10,
+            ),
+            make_session(
+                "s2", "Client admitted to relapse over the weekend.", days_ago=2
+            ),
         ],
         consents=[make_consent("substance_use")],
     )
     brief = brief_for(client)
 
-    assert brief["conflicts"], "contradictory substance-use notes produced no conflict record"
+    assert brief[
+        "conflicts"
+    ], "contradictory substance-use notes produced no conflict record"
     assert any("CONFLICTING RECORDS" in n for n in brief["conflict_notices"])
 
     conflict = brief["conflicts"][0]
@@ -175,8 +196,14 @@ def test_case2_contradiction_produces_notice_and_keeps_both_statements():
 def test_case2_no_false_conflict_on_consistent_notes():
     client = make_client(
         sessions=[
-            make_session("s1", "Client reports being sober for 3 weeks following discharge.", days_ago=10),
-            make_session("s2", "Client remains abstinent and engaged with support.", days_ago=2),
+            make_session(
+                "s1",
+                "Client reports being sober for 3 weeks following discharge.",
+                days_ago=10,
+            ),
+            make_session(
+                "s2", "Client remains abstinent and engaged with support.", days_ago=2
+            ),
         ],
         consents=[make_consent("substance_use")],
     )
@@ -191,8 +218,14 @@ def test_case2_conflict_detection_cannot_reveal_withheld_content():
     """
     client = make_client(
         sessions=[
-            make_session("s1", "Client reports being sober for 3 weeks following discharge.", days_ago=10),
-            make_session("s2", "Client admitted to relapse over the weekend.", days_ago=2),
+            make_session(
+                "s1",
+                "Client reports being sober for 3 weeks following discharge.",
+                days_ago=10,
+            ),
+            make_session(
+                "s2", "Client admitted to relapse over the weekend.", days_ago=2
+            ),
         ],
         consents=[],  # nothing permitted at all
     )
@@ -204,9 +237,12 @@ def test_case2_conflict_detection_cannot_reveal_withheld_content():
 
 # ── Failure case 3 — missing consent record ────────────────────────────────
 
+
 def test_case3_missing_consent_is_named_not_silently_dropped():
     client = make_client(
-        sessions=[make_session("s1", "Client has an upcoming court appearance on 14 March.")],
+        sessions=[
+            make_session("s1", "Client has an upcoming court appearance on 14 March.")
+        ],
         consents=[],
     )
     brief = brief_for(client)
@@ -214,11 +250,14 @@ def test_case3_missing_consent_is_named_not_silently_dropped():
     assert "forensic_legal" in brief["consent_missing"]
     assert "forensic_legal" in brief["withheld_notice"]
 
-    reasons = {w["category"]: w["reason_code"] for w in brief["explanation"]["why_withheld"]}
+    reasons = {
+        w["category"]: w["reason_code"] for w in brief["explanation"]["why_withheld"]
+    }
     assert reasons["forensic_legal"] == "no_record"
 
     detail = next(
-        w["detail"] for w in brief["explanation"]["why_withheld"]
+        w["detail"]
+        for w in brief["explanation"]["why_withheld"]
         if w["category"] == "forensic_legal"
     )
     # The wording must not imply the client refused — nobody asked them.
@@ -228,16 +267,21 @@ def test_case3_missing_consent_is_named_not_silently_dropped():
 def test_case3_wrong_role_is_distinguished_from_no_record():
     """Consent for another role is a different situation and must read differently."""
     client = make_client(
-        sessions=[make_session("s1", "Client has an upcoming court appearance on 14 March.")],
+        sessions=[
+            make_session("s1", "Client has an upcoming court appearance on 14 March.")
+        ],
         consents=[make_consent("forensic_legal", role="psychiatrist")],
     )
     brief = brief_for(client, RecipientRole.COUNSELLOR)
 
-    reasons = {w["category"]: w["reason_code"] for w in brief["explanation"]["why_withheld"]}
+    reasons = {
+        w["category"]: w["reason_code"] for w in brief["explanation"]["why_withheld"]
+    }
     assert reasons["forensic_legal"] == "wrong_role"
 
 
 # ── Failure case 4 — low-confidence tag ────────────────────────────────────
+
 
 def test_case4_low_confidence_denied_despite_active_consent():
     """A weak tag fails closed even when consent would otherwise permit it."""
@@ -262,11 +306,14 @@ def test_case4_low_confidence_denied_despite_active_consent():
 
     assert "family_conflict" not in brief["permitted_categories"]
     assert "family_conflict" in brief["withheld_categories"]
-    assert brief["uncertainty_note"], "low-confidence spans must be surfaced to the reader"
+    assert brief[
+        "uncertainty_note"
+    ], "low-confidence spans must be surfaced to the reader"
 
 
 def test_case4_confidence_threshold_boundary_is_inclusive():
     """Exactly at the threshold permits; a hair below denies."""
+
     def brief_at(confidence: float) -> dict:
         span = {
             "span_id": "sp-b",
@@ -287,6 +334,7 @@ def test_case4_confidence_threshold_boundary_is_inclusive():
 
 # ── Failure case 5 — LLM unavailable ───────────────────────────────────────
 
+
 def test_case5_llm_unavailable_falls_to_tier2_without_raising(monkeypatch):
     """Tier 1 failure must degrade silently to tier 2, never raise."""
     import src.generator.generator as gen
@@ -301,7 +349,11 @@ def test_case5_llm_unavailable_falls_to_tier2_without_raising(monkeypatch):
         "client_id": "C001",
         "recipient_role": "counsellor",
         "permitted_spans": [
-            {"span_id": "sp1", "text": "Client engaged well in session.", "category": "unclassified"}
+            {
+                "span_id": "sp1",
+                "text": "Client engaged well in session.",
+                "category": "unclassified",
+            }
         ],
         "goals": [],
         "actions": [],
@@ -318,7 +370,11 @@ def test_case5_llm_unavailable_falls_to_tier2_without_raising(monkeypatch):
 def test_case5_ladder_reaches_tier4_when_nothing_else_works():
     """With no content and no facts, the floor is a manual checklist — not an error."""
     output = generate_brief(
-        {"client_id": "C001", "recipient_role": "counsellor", "generated_at": NOW.isoformat()}
+        {
+            "client_id": "C001",
+            "recipient_role": "counsellor",
+            "generated_at": NOW.isoformat(),
+        }
     )
 
     assert output.tier == 4
@@ -369,6 +425,7 @@ def test_case6_escalation_flag_does_not_disclose_the_content():
 
 
 # ── Cross-cutting: actions survive consent filtering ───────────────────────
+
 
 def test_high_priority_actions_survive_total_consent_denial():
     """Withholding every category must not delete operational continuity."""
